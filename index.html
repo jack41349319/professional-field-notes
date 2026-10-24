@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="個人經歷與顧問服務｜品質、環境、安全衛生與現場管理整合" />
+  <title>Professional Field Notes｜個人經歷</title>
+  <style>
+    :root { --ink:#171717; --paper:#f5eee4; --orange:#df7942; --orange-deep:#c85e2e; --muted:#796f65; --line:#d7cbbd; --white:#fffaf3; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+    body:before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.3; background-image:radial-gradient(#c6b9a9 .6px, transparent .6px); background-size:16px 16px; mix-blend-mode:multiply; }
+    .shell { width:min(1180px, calc(100% - 40px)); margin:auto; position:relative; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:28px 0; border-bottom:1px solid var(--line); }
+    .brand { display:flex; gap:12px; align-items:center; font-weight:900; letter-spacing:-.05em; font-size:1.08rem; }
+    .mark { width:35px; height:35px; border-radius:11px; display:grid; place-items:center; background:var(--ink); color:var(--paper); font-weight:900; box-shadow:5px 5px 0 var(--orange); }
+    nav { display:flex; gap:24px; align-items:center; font-size:.82rem; font-weight:800; }
+    nav a { color:var(--ink); text-decoration:none; }
+    .toggle { display:flex; border:1px solid var(--ink); border-radius:999px; padding:3px; background:var(--white); cursor:pointer; }
+    .toggle button { border:0; background:transparent; border-radius:999px; padding:8px 13px; font:inherit; cursor:pointer; color:var(--muted); }
+    .toggle button.active { background:var(--ink); color:var(--paper); }
+    .hero { min-height:590px; display:grid; grid-template-columns:1.04fr .96fr; gap:70px; align-items:center; padding:82px 0 72px; }
+    .eyebrow { color:var(--orange-deep); text-transform:uppercase; letter-spacing:.18em; font-size:.82rem; font-weight:900; }
+    h1 { font-size:clamp(4rem, 9vw, 8.4rem); line-height:.88; letter-spacing:-.09em; margin:23px 0 30px; max-width:740px; }
+    h1 span { color:var(--orange); display:block; }
+    .lede { color:var(--muted); font-size:clamp(1.05rem, 2vw, 1.35rem); line-height:1.75; max-width:620px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .button { display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--paper); background:var(--ink); padding:14px 19px; border-radius:999px; font-weight:800; transition:transform .25s, background .25s; }
+    .button:hover { transform:translateY(-4px); background:var(--orange-deep); }
+    .button.alt { background:transparent; color:var(--ink); border:1px solid var(--ink); }
+    .hero-card { background:var(--ink); color:var(--paper); min-height:385px; border-radius:30px; padding:32px; transform:rotate(2.3deg); box-shadow:18px 18px 0 var(--orange); position:relative; overflow:hidden; }
+    .hero-card:after { content:"↗"; position:absolute; right:27px; bottom:15px; color:var(--orange); font-size:6rem; line-height:1; }
+    .hero-card .number { font-size:5rem; font-weight:900; line-height:.9; color:var(--orange); letter-spacing:-.09em; }
+    .hero-card h2 { max-width:300px; font-size:2.25rem; letter-spacing:-.06em; line-height:1; margin:32px 0 20px; }
+    .hero-card p { color:#d7cec4; line-height:1.65; max-width:300px; }
+    section { padding:95px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:28px; align-items:end; margin-bottom:35px; }
+    .section-head h2 { margin:0; font-size:clamp(2.3rem, 5vw, 4.6rem); line-height:.94; letter-spacing:-.08em; }
+    .section-head p { max-width:390px; color:var(--muted); line-height:1.7; margin:0; }
+    .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:15px; }
+    .block { background:var(--white); border:1px solid var(--line); border-radius:22px; padding:25px; min-height:230px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; transform-style:preserve-3d; will-change:transform; }
+    .block:hover { border-color:var(--orange); box-shadow:8px 8px 0 rgba(223,121,66,.28); }
+    .block .label { color:var(--orange-deep); font-size:.78rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .block h3 { font-size:1.55rem; letter-spacing:-.05em; margin:22px 0 15px; }
+    .block ul { list-style:none; padding:0; margin:0; color:var(--muted); line-height:1.85; }
+    .block li:before { content:"—  "; color:var(--orange); font-weight:900; }
+    .wide { grid-column:span 2; min-height:260px; }
+    .dark-section { background:var(--ink); color:var(--paper); margin:0 calc(50% - 50vw); padding-left:max(20px, calc((100vw - 1180px)/2)); padding-right:max(20px, calc((100vw - 1180px)/2)); }
+    .dark-section .section-head p { color:#bdb1a6; }
+    .dark-section .block { background:#222; border-color:#4b433d; }
+    .dark-section .block ul { color:#c6b9ae; }
+    .story { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+    .quote { font-size:clamp(2rem, 4vw, 4rem); line-height:1.05; letter-spacing:-.07em; margin:0; }
+    .quote em { color:var(--orange); font-style:normal; }
+    .story-copy { color:var(--muted); line-height:1.9; font-size:1.04rem; }
+    .timeline { border-top:1px solid var(--line); margin-top:45px; }
+    .timeline-row { display:grid; grid-template-columns:130px 1fr 170px; gap:22px; padding:25px 0; border-bottom:1px solid var(--line); align-items:center; }
+    .timeline-row strong { font-size:1.1rem; }
+    .timeline-row p { margin:0; color:var(--muted); line-height:1.6; }
+    footer { padding:35px 0 55px; display:flex; justify-content:space-between; gap:20px; border-top:1px solid var(--line); color:var(--muted); font-size:.87rem; }
+    .reveal { opacity:0; transform:translateY(25px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    @media (max-width:800px) { .shell{width:min(100% - 28px, 650px)} header{padding:18px 0} nav a{display:none}.hero{grid-template-columns:1fr; gap:35px; padding:64px 0}.hero-card{min-height:320px}.grid,.story{grid-template-columns:1fr}.wide{grid-column:auto}.section-head{display:block}.section-head p{margin-top:18px}.timeline-row{grid-template-columns:1fr;gap:6px}.timeline-row span{color:var(--orange-deep);font-weight:800}.timeline-row p{font-size:.95rem}footer{display:block}footer div+div{margin-top:12px} }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <a class="brand" href="#top"><span class="mark">F</span><span data-zh="FIELD NOTES" data-en="FIELD NOTES">FIELD NOTES</span></a>
+    <nav><a href="#profile" data-zh="經歷" data-en="Profile">經歷</a><a href="#skills" data-zh="能力" data-en="Capabilities">能力</a><a href="#contact" data-zh="聯絡" data-en="Contact">聯絡</a><div class="toggle" aria-label="Language switch"><button class="active" data-lang="zh">繁中</button><button data-lang="en">EN</button></div></nav>
+  </header>
+  <main id="top">
+    <div class="shell">
+      <section class="hero">
+        <div class="reveal"><div class="eyebrow" data-zh="品質 × 現場 × 系統" data-en="QUALITY × FIELD × SYSTEMS">品質 × 現場 × 系統</div><h1 data-zh="把複雜的事，做成可執行的系統。" data-en="Make complexity workable.">把複雜的事，<span>做成可執行的系統。</span></h1><p class="lede" data-zh="從品質管理、環境與安全衛生，到供應鏈稽核與現場改善，協助組織把要求落地成日常工作的方法。" data-en="From quality management, environment and occupational safety to supply-chain audits and field improvement — turning requirements into everyday ways of working.">從品質管理、環境與安全衛生，到供應鏈稽核與現場改善，協助組織把要求落地成日常工作的方法。</p><div class="hero-actions"><a class="button" href="#profile" data-zh="探索經歷 ↓" data-en="Explore ↓">探索經歷 ↓</a><a class="button alt" href="#contact" data-zh="開始對話" data-en="Start a conversation">開始對話</a></div></div>
+        <div class="hero-card reveal"><div class="number">01</div><h2 data-zh="經驗不是清單，是判斷力。" data-en="Experience is judgement, not a list.">經驗不是清單，是判斷力。</h2><p data-zh="跨越管理系統、稽核、製程能力與現場管理，將不同語言整合成團隊能夠採用的下一步。" data-en="Across management systems, audits, process capability and field operations — bringing different languages together into the next step a team can use.">跨越管理系統、稽核、製程能力與現場管理，將不同語言整合成團隊能夠採用的下一步。</p></div>
+      </section>
+      <section id="profile"><div class="section-head reveal"><h2 data-zh="一個跨域的<br><span style='color:var(--orange)'>工作剖面</span>" data-en="A cross-disciplinary<br><span style='color:var(--orange)'>profile</span>">一個跨域的<br><span style="color:var(--orange)">工作剖面</span></h2><p data-zh="以下內容整理自提供的個人資料圖，保留原有專業範圍，並轉成適合網頁瀏覽的敘事結構。" data-en="A web-ready narrative built from the supplied profile image, keeping its original areas of expertise.">以下內容整理自提供的個人資料圖，保留原有專業範圍，並轉成適合網頁瀏覽的敘事結構。</p></div><div class="grid"><article class="block tilt reveal"><div class="label">01 / Education</div><h3 data-zh="學歷" data-en="Education">學歷</h3><ul><li data-zh="台灣科技大學／工業管理系" data-en="National Taiwan University of Science and Technology / Industrial Management">台灣科技大學／工業管理系</li><li data-zh="淡江 EMBA 企管系" data-en="Tamkang EMBA / Business Administration">淡江 EMBA 企管系</li></ul></article><article class="block tilt reveal"><div class="label">02 / Credentials</div><h3 data-zh="資格證照" data-en="Credentials">資格證照</h3><ul><li data-zh="品質管理、ISO 14064、ESG／GRI" data-en="Quality management, ISO 14064, ESG / GRI">品質管理、ISO 14064、ESG／GRI</li><li data-zh="永續零碳管理、職業安全衛生" data-en="Net-zero sustainability, occupational safety">永續零碳管理、職業安全衛生</li><li data-zh="AI 應用規劃、防火管理、急救" data-en="AI planning, fire management, first aid">AI 應用規劃、防火管理、急救</li></ul></article><article class="block tilt reveal"><div class="label">03 / Systems</div><h3 data-zh="管理系統" data-en="Management systems">管理系統</h3><ul><li data-zh="ISO 9001 品質管理系統" data-en="ISO 9001 Quality Management">ISO 9001 品質管理系統</li><li data-zh="ISO 14001 環境管理系統" data-en="ISO 14001 Environmental Management">ISO 14001 環境管理系統</li><li data-zh="ISO 45001 安全衛生管理系統" data-en="ISO 45001 Occupational Health & Safety">ISO 45001 安全衛生管理系統</li><li data-zh="IATF 16949 汽車供應鏈管理" data-en="IATF 16949 Automotive supply chain">IATF 16949 汽車供應鏈管理</li></ul></article></div></section>
+      <section id="skills" class="dark-section"><div class="section-head reveal"><h2 data-zh="把要求，<br><span style='color:var(--orange)'>變成現場</span>" data-en="Turn requirements<br>into the <span style='color:var(--orange)'>field</span>">把要求，<br><span style="color:var(--orange)">變成現場</span></h2><p data-zh="不只熟悉條文，也熟悉工廠、供應商與客戶現場如何把條文變成可追蹤的行動。" data-en="Not only the clauses, but how factories, suppliers and customer sites turn them into traceable action.">不只熟悉條文，也熟悉工廠、供應商與客戶現場如何把條文變成可追蹤的行動。</p></div><div class="grid"><article class="block wide tilt reveal"><div class="label">Core practice</div><h3 data-zh="專業技能" data-en="Core capabilities">專業技能</h3><ul><li data-zh="QC 七大手法、8D 客訴報告撰寫、製程能力分析" data-en="Seven QC tools, 8D customer reports, process capability analysis">QC 七大手法、8D 客訴報告撰寫、製程能力分析</li><li data-zh="臨時／長期工廠現場管理系統建立與布署（台灣／中國）" data-en="Factory management system deployment in Taiwan / China">臨時／長期工廠現場管理系統建立與布署（台灣／中國）</li><li data-zh="SAQ、客戶現場稽核對應，人資／安全衛生／環境法規鑑別" data-en="SAQ, customer audits, HR / EHS legal identification">SAQ、客戶現場稽核對應，人資／安全衛生／環境法規鑑別</li></ul></article><article class="block tilt reveal"><div class="label">Audit guidance</div><h3 data-zh="問卷／廠驗輔導" data-en="Audit readiness">問卷／廠驗輔導</h3><ul><li>SEDEX / SMETA</li><li>Ecovadis</li><li>Supplier Assurance</li></ul></article><article class="block tilt reveal"><div class="label">Methods</div><h3 data-zh="五大工具" data-en="Five core tools">五大工具</h3><ul><li>MSA / SPC</li><li>APQP / PPAP</li><li>FMEA</li></ul></article></div></section>
+      <section><div class="story"><p class="quote reveal" data-zh="好的顧問，不是把答案交出去，而是讓團隊知道<span>下一步怎麼走。</span>" data-en="A good advisor does not just hand over answers — they help a team see <span>what to do next.</span>">好的顧問，不是把答案交出去，而是讓團隊知道<span>下一步怎麼走。</span></p><div class="story-copy reveal"><p data-zh="工作範圍涵蓋制度建置、現場運作、稽核準備與客戶溝通。也保留對非典型問題的好奇：從快速記憶、NLP 腦力開發，到數字易經、塔羅牌與音樂文化研究，持續擴大理解問題的角度。" data-en="The work spans system design, field execution, audit readiness and customer communication. Curiosity also extends beyond the typical: from memory and NLP to numerology, tarot and music culture — always widening the lens used to understand a problem.">工作範圍涵蓋制度建置、現場運作、稽核準備與客戶溝通。也保留對非典型問題的好奇：從快速記憶、NLP 腦力開發，到數字易經、塔羅牌與音樂文化研究，持續擴大理解問題的角度。</p></div></div><div class="timeline reveal"><div class="timeline-row"><span>Scope 01</span><strong data-zh="客戶與產業" data-en="Clients & industries">客戶與產業</strong><p data-zh="SONY／MITSUBISHI／BOSCH／MAKITA／Foxconn／群創光電／台灣應用材料等" data-en="SONY / MITSUBISHI / BOSCH / MAKITA / Foxconn / Innolux / Applied Materials Taiwan">SONY／MITSUBISHI／BOSCH／MAKITA／Foxconn／群創光電／台灣應用材料等</p></div><div class="timeline-row"><span>Scope 02</span><strong data-zh="工作方式" data-en="Working style">工作方式</strong><p data-zh="以問題釐清、證據追溯、系統化部署與團隊共用語言，推動改善。" data-en="Clarify the problem, trace the evidence, deploy the system and build a shared team language.">以問題釐清、證據追溯、系統化部署與團隊共用語言，推動改善。</p></div></div></section>
+      <section id="contact" class="dark-section"><div class="section-head reveal"><h2 data-zh="有一個複雜的<br><span style='color:var(--orange)'>現場問題？</span>" data-en="A complex<br><span style='color:var(--orange)'>field problem?</span>">有一個複雜的<br><span style="color:var(--orange)">現場問題？</span></h2><p data-zh="先從問題本身開始。這個頁面保留為可編輯的單檔版本，後續可以接上你的姓名、照片、Email、LinkedIn 或 LINE。" data-en="Start with the problem itself. This is a single editable file, ready for your name, photo, email, LinkedIn or LINE to be added.">先從問題本身開始。這個頁面保留為可編輯的單檔版本，後續可以接上你的姓名、照片、Email、LinkedIn 或 LINE。</p></div><a class="button" href="mailto:hello@example.com" data-zh="寄一封信 ↗" data-en="Send an email ↗">寄一封信 ↗</a></section>
+    </div>
+  </main>
+  <footer class="shell"><div>© 2026 Field Notes</div><div data-zh="品質・環境・安全衛生・現場改善" data-en="Quality · Environment · Occupational Safety · Field Improvement">品質・環境・安全衛生・現場改善</div></footer>
+  <script>
+    const root=document.documentElement; let lang='zh';
+    function setLang(next){lang=next;root.lang=next==='zh'?'zh-Hant':'en';document.querySelectorAll('[data-zh]').forEach(el=>{el.innerHTML=el.dataset[next]});document.querySelectorAll('.toggle button').forEach(b=>b.classList.toggle('active',b.dataset.lang===next));}
+    document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.13});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+    document.querySelectorAll('.tilt').forEach(card=>card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${-y*5}deg) rotateY(${x*5}deg) translateY(-7px)`}));
+    document.querySelectorAll('.tilt').forEach(card=>card.addEventListener('pointerleave',()=>{card.style.transform=''}));
+  </script>
+</body>
+</html>
